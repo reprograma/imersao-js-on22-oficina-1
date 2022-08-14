@@ -1,19 +1,29 @@
-const { TAXAS_CONTRATUAIS_POR_PACOTE } = require('../constantes/constantes')
-const { calcularHorasDeProjeto } = require('./horasPorProjeto');
-const { calcularPacote } = require('./pacote');
+const {
+  TAXAS_CONTRATUAIS_POR_PACOTE
+} = require('../constantes/constantes')
+const {
+  calcularHorasDeProjeto
+} = require('./horasPorProjeto');
+const {
+  calcularPacote
+} = require('./pacote');
 
 const calcularValorBaseProjeto = (totalDeHorasPorProjeto, valorHora) => {
   return totalDeHorasPorProjeto * valorHora;
 };
 
 const calcularValorTotalProjeto = (funcionalidades, valorHora) => {
-  const totalDeHorasPorProjeto = calcularHorasDeProjeto(funcionalidades);
-  
-  const pacote = calcularPacote(totalDeHorasPorProjeto);
+  if (Array.isArray(funcionalidades) && Number.isFinite(valorHora)) {
+    const totalDeHorasPorProjeto = calcularHorasDeProjeto(funcionalidades);
 
-  const valorBase = calcularValorBaseProjeto(totalDeHorasPorProjeto, valorHora);
+    const pacote = calcularPacote(totalDeHorasPorProjeto);
 
-  return Math.round(valorBase * TAXAS_CONTRATUAIS_POR_PACOTE[pacote]);
+    const valorBase = calcularValorBaseProjeto(totalDeHorasPorProjeto, valorHora);
+
+    return Math.round(valorBase * TAXAS_CONTRATUAIS_POR_PACOTE[pacote]);
+  } else {
+    return "Not a valid input"
+  }
 }
 
 exports.calcularValorTotalProjeto = calcularValorTotalProjeto;
