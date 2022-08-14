@@ -58,3 +58,4 @@ No meio do caminho, a desenvolvedora percebeu que o código não estava testado 
         ├── pacotetest.test.js
         └── valorProjeto.test.js
 ````
+teste 1
