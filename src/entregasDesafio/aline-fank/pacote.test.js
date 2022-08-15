@@ -18,7 +18,7 @@ describe('Testar pacotes de acordo com as horas totais do projeto', () => {
         const result = calcularPacote(horasRealizadas);
         expect(result).toEqual('pacote_intermediario');
     })
-    
+
     test('verificar se as horas realizadas correspondem ao pacote premium', () => {
         const horasRealizadas = 140;
         const result = calcularPacote(horasRealizadas);
@@ -28,4 +28,3 @@ describe('Testar pacotes de acordo com as horas totais do projeto', () => {
 
 
 
-// testar todos os pacotes e testar os outros cenários. Básico, premium e intermediário.
