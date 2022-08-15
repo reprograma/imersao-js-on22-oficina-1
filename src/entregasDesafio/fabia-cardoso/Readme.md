@@ -1,10 +1,3 @@
-const { MAX_HORAS_POR_PACOTE } = require('../constantes/constantes');
-
-const calcularPacote = (totalDeHorasPorProjeto) => Object.entries(MAX_HORAS_POR_PACOTE)
-  .find(([key, value]) => value >= totalDeHorasPorProjeto
-)[0];
-
-exports.calcularPacote = calcularPacote;
 
 /* Na linha 4, o código que recebemos na oficina dizia que "value" deveria ser maior que "totalDeHorasPorProjeto". Com o código assim o nosso teste 
    do pacote não deu certo. Então nós pensamos em simplismente diminuir o valor de 50 no teste para 49 e ai sim ele funcionou. Foi então que eu
