@@ -1,35 +1,39 @@
 const { calcularPacote } = require("../../dominio/calculadora/Projeto/pacote");
 
 describe("Testar pacotes de acordo com as horas totais do projeto", () => {
-  test("testar o pacote básico", () => {
-    const horasProjeto = 49.99;
+  it("deve testar o pacote básico", () => {
+    const horasProjeto = 50;
     const result = calcularPacote(horasProjeto);
+
     expect(result).toEqual("pacote_basico");
   });
 
-  test("testar o pacote intermediário", () => {
-    const horasProjeto = 99.99;
+  it("deve testar o pacote intermediário", () => {
+    const horasProjeto = 100;
     const result = calcularPacote(horasProjeto);
+
     expect(result).toEqual("pacote_intermediario");
   });
 
-  test("testar o pacote premium", () => {
-    const horasProjeto = 199.99;
+  it("deve testar o pacote premium", () => {
+    const horasProjeto = 200;
     const result = calcularPacote(horasProjeto);
+
     expect(result).toEqual("pacote_premium");
   });
 });
 
-describe("Se o valor der exatamente o valor máximo de horas por pacote, ele deve passar para o próximo pacote", () => {
-  test("testar o pacote básico", () => {
-    const horasProjeto = 50;
+describe("Testar a troca de pacotes quando ultrapassa o valor máximo por pacote", () => {
+  it("deve testar a troca de pacote básico para intermediário", () => {
+    const horasProjeto = 50.1;
     const result = calcularPacote(horasProjeto);
 
     expect(result).not.toEqual("pacote_basico");
     expect(result).toEqual("pacote_intermediario");
   });
-  test("testar o pacote intermediário", () => {
-    const horasProjeto = 100;
+
+  it("deve testar o pacote intermediário", () => {
+    const horasProjeto = 100.1;
     const result = calcularPacote(horasProjeto);
 
     expect(result).not.toEqual("pacote_intermediario");
