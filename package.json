@@ -1,11 +1,19 @@
 {
   "name": "aceleradora-js-desafio",
   "version": "1.0.0",
-  "description": "",
+  "description": "Creating tests with jest to Reprograma's codes",
   "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
   "keywords": [],
-  "author": "",
+  "author": "Erica S. Francisco",
   "license": "ISC",
   "dependencies": {
+    "node": "^14.15.2"
+  },
+  "repository": "https://github.com/EricaSantos-FullStack/imersao-js-on22-oficina-1.git",
+  "devDependencies": {
+    "jest": "28.1.3"
   }
 }
