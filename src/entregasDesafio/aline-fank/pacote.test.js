@@ -15,7 +15,6 @@ describe('Testar pacotes de acordo com as horas totais do projeto', () => {
 
     test('verificar se as horas realizadas correspondem ao pacote intermediário', () => {
         const horasRealizadas = 89;
-        console.log(horasRealizadas)
         const result = calcularPacote(horasRealizadas);
         expect(result).toEqual('pacote_intermediario');
     })
